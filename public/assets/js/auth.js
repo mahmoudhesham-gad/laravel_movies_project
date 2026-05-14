@@ -1,24 +1,25 @@
 (function () {
-  var errorBox = document.getElementById('auth-error');
-  var loginForm = document.getElementById('login-form');
-  var signupForm = document.getElementById('signup-form');
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function showError(msg) {
+    var errorBox = document.getElementById('auth-error');
     if (!errorBox) return;
     errorBox.textContent = msg;
     errorBox.style.display = 'block';
   }
 
   function clearError() {
+    var errorBox = document.getElementById('auth-error');
     if (!errorBox) return;
     errorBox.style.display = 'none';
     errorBox.textContent = '';
   }
 
-  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (!form || form.tagName !== 'FORM') return;
 
-  if (loginForm) {
-    loginForm.addEventListener('submit', function (e) {
+    if (form.id === 'login-form') {
       clearError();
 
       var email = document.getElementById('login-email');
@@ -33,11 +34,10 @@
         e.preventDefault();
         showError('Password is required.');
       }
-    });
-  }
+      return;
+    }
 
-  if (signupForm) {
-    signupForm.addEventListener('submit', function (e) {
+    if (form.id === 'signup-form') {
       clearError();
 
       var name = document.getElementById('signup-name');
@@ -64,6 +64,6 @@
         e.preventDefault();
         showError('Passwords do not match.');
       }
-    });
-  }
+    }
+  });
 })();

@@ -53,6 +53,10 @@
 		</form>
 
 		<div class="auth-card__footer">
+			<a href="/">← Back to home</a>
+		</div>
+
+		<div class="auth-card__footer">
 			Don't have an account? <a href="{{ route('register') }}">Sign Up</a>
 		</div>
 

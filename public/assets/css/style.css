@@ -1326,6 +1326,10 @@ a.movie-card {
     color: var(--clr-accent);
 }
 
+.auth-card__footer a:hover {
+    color: var(--clr-accent-alt);
+}
+
 /* ===== NAV USER GREETING ===== */
 .nav-user-greeting {
     font-size: 0.9rem;

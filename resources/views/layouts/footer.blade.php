@@ -66,7 +66,7 @@
 		</div>
 	</footer>
 
-	<script>
+	<script data-spa-ignore>
 		const toggle = document.getElementById('nav-toggle');
 		const links  = document.getElementById('nav-links');
 		const auth   = document.getElementById('nav-auth');
@@ -75,6 +75,8 @@
 			auth.classList.toggle('is-open');
 		});
 	</script>
+
+	<script src="{{ asset('assets/js/spa-nav.js') }}" defer></script>
 
 	@stack('scripts')
 
