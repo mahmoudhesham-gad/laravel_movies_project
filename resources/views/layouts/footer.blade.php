@@ -1,12 +1,8 @@
 	</main>
-	{{-- ===== MAIN CONTENT END ===== --}}
-
-	{{-- ===== FOOTER ===== --}}
 	<footer class="site-footer" id="site-footer">
 		<div class="footer-container">
 			<div class="footer-grid">
 
-				{{-- Brand Column --}}
 				<div class="footer-brand">
 					<a href="{{ route('home') }}" class="nav-logo">
 						<span class="logo-icon">🎬</span>
@@ -20,7 +16,6 @@
 					</div>
 				</div>
 
-				{{-- Explore Column --}}
 				<div class="footer-col">
 					<h4>Explore</h4>
 					<ul>
@@ -31,7 +26,6 @@
 					</ul>
 				</div>
 
-				{{-- Account Column --}}
 				<div class="footer-col">
 					<h4>Account</h4>
 					<ul>
@@ -54,7 +48,6 @@
 					</ul>
 				</div>
 
-				{{-- Legal Column --}}
 				<div class="footer-col">
 					<h4>Legal</h4>
 					<ul>
@@ -66,7 +59,6 @@
 
 			</div>
 
-			{{-- Bottom Bar --}}
 			<div class="footer-bottom">
 				<span>&copy; {{ date('Y') }} CineVault. All rights reserved.</span>
 				<span>Powered by OMDb API</span>
@@ -74,7 +66,6 @@
 		</div>
 	</footer>
 
-	{{-- Mobile menu toggle (exact match to Phase 1) --}}
 	<script>
 		const toggle = document.getElementById('nav-toggle');
 		const links  = document.getElementById('nav-links');
@@ -85,7 +76,6 @@
 		});
 	</script>
 
-	{{-- Per-page extra scripts --}}
 	@stack('scripts')
 
 </body>
