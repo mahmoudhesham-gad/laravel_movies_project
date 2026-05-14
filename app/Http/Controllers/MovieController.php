@@ -17,10 +17,21 @@ class MovieController extends Controller
         return view('movies.index', $data);
     }
 
+    public function show(string $imdbId)
+    {
+        $movie = $this->omdb->getMovieById($imdbId);
+
+        if (!$movie) {
+            abort(404);
+        }
+
+        return view('movies.show', ['movie' => $movie]);
+    }
+
     public function search(Request $request)
     {
-        $query = $request->input('q', '');
-        $type = $request->input('type', '');
+        $query = (string) $request->input('q', '');
+        $type = (string) $request->input('type', '');
         $page = (int) $request->input('page', 1);
 
         $results = $this->omdb->searchMovies($query, $type, $page);

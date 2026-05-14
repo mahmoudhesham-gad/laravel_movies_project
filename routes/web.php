@@ -10,12 +10,26 @@ Route::get('/', [MovieController::class, 'index'])->name('home');
 
 Route::get('/search', [MovieController::class, 'search'])->name('movies.search');
 
+Route::get('/movies/{imdbId}', [MovieController::class, 'show'])->name('movies.show');
+
 Route::get('/favorites', [FavoriteMovieController::class, 'index'])
     ->name('favorites.index')
     ->middleware('auth');
 
+Route::post('/favorites', [FavoriteMovieController::class, 'store'])
+    ->name('favorites.store')
+    ->middleware('auth');
+
+Route::delete('/favorites/{favoriteMovie}', [FavoriteMovieController::class, 'destroy'])
+    ->name('favorites.destroy')
+    ->middleware('auth');
+
 Route::get('/profile', [UserController::class, 'profile'])
     ->name('profile')
+    ->middleware('auth');
+
+Route::post('/profile', [UserController::class, 'updateProfilePicture'])
+    ->name('profile.update')
     ->middleware('auth');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])
